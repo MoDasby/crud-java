@@ -26,7 +26,7 @@ public class PessoasController {
     }
 
     @PostMapping()
-    public String add(@RequestParam("nome") String nome, @RequestParam(value = "sobrenome", required = false) String sobrenome) throws Exception{
+    public String add(@RequestParam("nome") String nome, @RequestParam("sobrenome", required = false) String sobrenome) throws Exception{
         try{
             pessoaRepository.save(new Pessoa(nome, sobrenome));
 
