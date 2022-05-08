@@ -22,6 +22,12 @@ public class PersonService {
         return personRepository.findAll();
     }
 
+    public Person read(Long id) {
+        if (personRepository.findById(id).isEmpty()) throw new PersonNotFoundException("Person not found");
+
+        return personRepository.findById(id).get();
+    }
+
     public Person update(Long id, Person person) {
         if (personRepository.findById(id).isEmpty()) throw new PersonNotFoundException("Person not found");
 
